@@ -1,0 +1,15 @@
+@import "../../node_modules/normalize.css/normalize.css";
+
+// @import "./enaio-bootstrap.scss";
+// @import "../../splitterLayout.css";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/toastr/toastr";
+// @import "../../node_modules/react-contexify/dist/ReactContexify.css";
+// @import "../../node_modules/react-select/dist/react-select.css";
+//$navAndSideBar: hsl(207, 65%, 17%);
+#player {
+    image-rendering: pixelated;
+    position: absolute;
+}
