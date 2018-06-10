@@ -43,15 +43,15 @@ app.config(function($routeProvider) {
             templateUrl: "view/list.html",
             controller: "listController"
         })
-        .when("/detail/:id", {
-            templateUrl: "view/details.html",
-            controller: "detailController" //das ist nur der name des Controllers, nicht der Datei Name
-        })
         .when("/login", {
             templateUrl: "view/login.html",
-            controller: "loginController"
+            controller: "loginController" //das ist nur der name des Controllers, nicht der Datei Name
+        })
+        .when("/player", {
+            templateUrl: "view/player.html",
+            controller: "playerController"
         })
         .otherwise({
-            redirectTo: "/login"
+            redirectTo: "/lgin"
         });
 });
