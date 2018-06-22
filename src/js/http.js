@@ -1,26 +1,26 @@
 var app = angular.module("personal");
 
-app.factory("dataStore", function($http, $base64) {
-    //passwort
-    var auth = $base64.encode("root:optimal");
-    $http
-        .post("/osrest/api/documents/search", searchQuery, {
-            headers: {
-                Authorization: "Basic " + auth,
-                "Content-Type": "application/json"
-            }
-        })
-        .then(
-            response => {
-                //DO Something
-            },
-            error => {
-                console.error(error);
-            }
-        );
+// app.factory("dataStore", function($http, $base64) {
+//     //passwort
+//     var auth = $base64.encode("root:optimal");
+//     $http
+//         .post("/osrest/api/documents/search", searchQuery, {
+//             headers: {
+//                 Authorization: "Basic " + auth,
+//                 "Content-Type": "application/json"
+//             }
+//         })
+//         .then(
+//             response => {
+//                 //DO Something
+//             },
+//             error => {
+//                 console.error(error);
+//             }
+//         );
 
-    return list;
-});
+//     return list;
+// });
 
 app.service("restService", function($routeParams, $http, $base64) {
     function getFolders() {
