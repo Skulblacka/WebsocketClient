@@ -6,9 +6,10 @@ export default function playerController($scope, keyService, Store, serverConnec
     // $scope.text = "Weiter zur liste";
     var keySelector = {};
     var speed = 5;
-    $scope.pos_x = 100;
+    // $scope.pos_x = 100;
     $scope.text = "d";
     $scope.Beta = Store;
+    $scope.name=Store.Name
 
     //console.log($scope.Beta);
     serverConnection.connect($scope,Store,playeraction,$compile);
@@ -43,6 +44,7 @@ export default function playerController($scope, keyService, Store, serverConnec
 
         // }
         angular.element("#player").css("left", "" + Store.pos_x + "px");
+        angular.element("#player").css("top", "" + Store.pos_y + "px");
         angular.element("#player").focus();
 
     }, 24);

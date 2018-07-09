@@ -1,4 +1,3 @@
-var debug = process.env.NODE_ENV !== "production";
 var webpack = require("webpack");
 var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -9,15 +8,17 @@ var NameAllModulesPlugin = require("name-all-modules-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
+const debug = (process.env.NODE_ENV || "").trim() !== "production";
+const deploy = process.env.NODE_DEPLOY !== undefined;
+
 var config = {
     context: __dirname,
     devtool: "source-map",
     entry: {
-        app: ["./src/js/app.js"],
-        vendor: []
+        app: ["./src/js/app.js"]
     },
     output: {
-        path: path.resolve(__dirname, process.env.NODE_DEPLOY ? "dist" : "src"),
+        path: path.resolve(__dirname, deploy ? "dist" : "src"),
         filename: debug ? "[name].[hash].js" : "[name].[chunkhash].js"
     },
     resolve: {
@@ -174,7 +175,7 @@ if (debug) {
     config.plugins.push(
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("production")
+                debug: JSON.stringify("production")
             }
         })
     );
@@ -218,12 +219,12 @@ if (debug) {
     );
 }
 
-if (process.env.NODE_DEPLOY) {
-    config.plugins.push(
-        new WebpackShellPlugin({
-            onBuildEnd: "node copyFilesToDist.js"
-        })
-    );
-}
+// if (deploy) {
+//     config.plugins.push(
+//         new WebpackShellPlugin({
+//             onBuildEnd: "node copyFilesToDist.js"
+//         })
+//     );
+// }
 
 module.exports = config;

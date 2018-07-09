@@ -39,7 +39,8 @@ function storeUpdate(data, store,playeraction,scope,complie){
 for(var i =0; i<data.values.length;i++){
     if(data.values[i][0]==store.Name){
         store.pos_x=data.values[i][1]
-        store.id=data.values[i][2];
+        store.pos_y=data.values[i][2]
+        store.id=data.values[i][3];
         playeraction.movePlayer(scope,store);
         playeraction.moveEnemys(scope,store,complie)
         store.enemys[i]="x";
