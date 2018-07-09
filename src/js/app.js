@@ -16,7 +16,6 @@ var app = angular.module("personal", ["ngRoute", "ngResource", "base64", "ngFile
 
 require("./controller");
 require("./http");
-require("./service/key");
 require("./module/store");
 require("./network/websocket");
 require("./module/action")

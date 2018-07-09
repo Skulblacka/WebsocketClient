@@ -1,7 +1,7 @@
 var app = angular.module("personal");
 
 app.service("playeraction", function() {
-        function moveEnemys(scope, store, complie) {
+        function moveEnemys(store) {
 
         for(let i=0; i<store.enemys.length;i++){
             if(store.enemys[i][1]!=undefined){
