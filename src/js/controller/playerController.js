@@ -27,7 +27,7 @@ export default function playerController($scope, keyService, Store, serverConnec
          obj.key = e.originalEvent.key;      
         //  playeraction.movePlayer($scope, Store);
        
-
+    console.log("pressed Key: "+obj.key+" value: "+Store.pos_x+":"+Store.pos_y)
       serverConnection.sendText(obj)
     };
     // $scope.keyUp = function(e) {

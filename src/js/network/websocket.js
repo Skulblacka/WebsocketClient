@@ -41,11 +41,14 @@ for(var i =0; i<data.values.length;i++){
         store.pos_x=data.values[i][1]
         store.pos_y=data.values[i][2]
         store.id=data.values[i][3];
-        playeraction.movePlayer(scope,store);
         playeraction.moveEnemys(scope,store,complie)
+        playeraction.movePlayer(scope,store);
+
         store.enemys[i]="x";
     }else{
         store.enemys[i]=data.values[i];
+        playeraction.moveEnemys(scope,store,complie)
+        playeraction.movePlayer(scope,store);
     }
 }
 }

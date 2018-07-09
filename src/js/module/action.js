@@ -1,13 +1,7 @@
 var app = angular.module("personal");
 
 app.service("playeraction", function() {
-    function movePlayer(scope,store) {
-        scope.pos_x=store.pos_x;  
-        console.log("move ME: "+store.Name)
-    }
-
-    function moveEnemys(scope, store, complie) {
-        console.log(store.enemys.length)
+        function moveEnemys(scope, store, complie) {
 
         for(let i=0; i<store.enemys.length;i++){
             if(store.enemys[i][1]!=undefined){
@@ -15,6 +9,11 @@ app.service("playeraction", function() {
             }
          
         }
+    }
+
+    function movePlayer(scope,store) {
+        scope.pos_x=store.pos_x;  
+        console.log("move ME: "+store.Name)
     }
     return { movePlayer, moveEnemys };
 });
@@ -40,4 +39,6 @@ function createEnemy(posi_X,posi_Y,name){
          a.style.top = posi_Y+'px';
 
     }
+
+    console.log("change value from "+name+" to: "+posi_X+":"+posi_Y)
 }
