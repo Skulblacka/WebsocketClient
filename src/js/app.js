@@ -19,6 +19,7 @@ require("./http");
 require("./service/key");
 require("./module/store");
 require("./network/websocket");
+require("./module/action")
 
 toastr.options = {
     closeButton: false,
